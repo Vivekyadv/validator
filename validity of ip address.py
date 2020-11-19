@@ -1,6 +1,6 @@
 import re
 
-with open('input_ip_file.txt') as inputfile:
+with open('/root/Projects/TOC/input files/input_ip_file.txt') as inputfile:
     string = inputfile.readlines()
 
 # pattern for IP addresses
@@ -10,8 +10,8 @@ pattern = '''^(25[0-5]|2[0-4][0-9]|[0-1]?[0-9][0-9]?)\.(
 			25[0-5]|2[0-4][0-9]|[0-1]?[0-9][0-9]?)\.(
 			25[0-5]|2[0-4][0-9]|[0-1]?[0-9][0-9]?)$'''
 
-valid = open("valid_ip.txt","w")
-invalid = open("invalid_ip.txt","w")
+valid = open("/root/Projects/TOC/output files/valid_ip.txt","w")
+invalid = open("/root/Projects/TOC/output files/invalid_ip.txt","w")
 # extracting the IP addresses
 for line in string:
     line = line.rstrip()

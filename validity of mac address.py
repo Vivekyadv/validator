@@ -1,6 +1,6 @@
 import re
 
-with open('input_mac_file.txt') as inputfile:
+with open('/root/Projects/TOC/input files/input_mac_file.txt') as inputfile:
     string = inputfile.readlines()
 
 # pattern for MAC addresses
@@ -11,8 +11,8 @@ pattern = re.compile("^([0-9A-Fa-f]{2}[:-])" +
              "[0-9a-fA-F]{4}\\." +
              "[0-9a-fA-F]{4})$")
 
-valid = open("valid_mac.txt","w")
-invalid = open("invalid_mac.txt","w")
+valid = open("/root/Projects/TOC/output files/valid_mac.txt","w")
+invalid = open("/root/Projects/TOC/output files/invalid_mac.txt","w")
 
 # extracting the IP addresses
 for line in string:

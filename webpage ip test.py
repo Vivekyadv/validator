@@ -16,11 +16,11 @@ def check_response(resp):
     else:
         print("Error! Unable to connect server")
 
-content = open("webpage_ip.txt", "w")
+content = open("/root/Projects/TOC/input files/webpage_ip.txt", "w")
 content.write(check_response(resp))
 content.close()
 
-with open('webpage_ip.txt') as webpage:
+with open('/root/Projects/TOC/input files/webpage_ip.txt') as webpage:
     string = webpage.readlines()
 
 pattern = '''^(25[0-5]|2[0-4][0-9]|[0-1]?[0-9][0-9]?)\.(
@@ -28,8 +28,8 @@ pattern = '''^(25[0-5]|2[0-4][0-9]|[0-1]?[0-9][0-9]?)\.(
 			25[0-5]|2[0-4][0-9]|[0-1]?[0-9][0-9]?)\.(
 			25[0-5]|2[0-4][0-9]|[0-1]?[0-9][0-9]?)$'''
 
-valid = open("valid_webpage_ip.txt","w")
-invalid = open("invalid_webpage_ip.txt","w")
+valid = open("/root/Projects/TOC/output files/valid_webpage_ip.txt","w")
+invalid = open("/root/Projects/TOC/output files/invalid_webpage_ip.txt","w")
 # extracting the IP addresses
 for line in string:
     line = line.rstrip()
