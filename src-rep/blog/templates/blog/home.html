@@ -9,16 +9,25 @@
      <h1>IP/MAC Validator</h1>
      <p class="lead text-muted">Validate IP and MAC addresses using Regular Expression. You can check whether ip/mac addresses are valid or not.</p>
      <img class="img-fluid" src="{% static 'mac_address.jpg' %}" width="600" />
-     <p><br/>
-       <a href="mailto:contact@gmail.com" class="btn btn-primary my-2">Email me</a>
-       <a href="" class="btn btn-primary my-2">Generate Password</a>
+     <p> <br>
+       <a href="{% url 'ip' %}" class="btn btn-primary my-2">IP Address</a>
+       <a href="{% url 'mac' %}" class="btn btn-primary my-2">MAC Address</a>
+     </p> <br>
+
+     <h4 style="text-align:left">IP Address</h4>
+     <p style="text-align:left;"> 
+         <b>IP Address</b> is an address having information about how to reach a specific host, especially outside the LAN. An IP address is a 32 bit unique address having an address space of 2<sup>32</sup>. Every device on internet has ip address to communicate with other devices.
+         Generally, there are two notations in which IP address is written, <b>dotted decimal notation</b> and <b>hexadecimal notation</b>.<br><br>
+         Some points to be noted about dotted decimal notation:<br>
+
+        1. The value of any segment (byte) is between 0 and 255 (both included). <br>
+        2. There are no zeroes preceding the value in any segment (054 is wrong, 54 is correct). <br>
      </p>
 
-     <p>Validate IP address from this<a href="{% static 'input_ip_file.txt' %}"> file</a>
-     <p>Validate MAC address from this<a href="{% static 'input_mac_file.txt' %}"> file</a>
-
-
-
+     <h4 style="text-align:left">MAC Address</h4>
+     <p style="text-align:left;"> 
+        Media Access Control Address is a physical address which works at Data Link Layer.
+     </p>
   </div>
 </section>
 

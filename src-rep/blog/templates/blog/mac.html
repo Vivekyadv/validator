@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<section class="jumbotron text-center">
+  <div class="container">
+     <h1>MAC Validator</h1> <br>
+     <img class="img-fluid" src="{% static 'mac.png' %}" width="600" /> <br><br/>
+     <h4 style="text-align:left;">What is MAC address?</h4>
+     <p style="text-align:left;"> 
+     	A media access control address (MAC address) is a unique identifier assigned to a network interface controller (NIC) for use as a network address in communications within a network segment. As typically represented, MAC addresses are recognizable as six groups of two hexadecimal digits, separated by hyphens, colons, or without a separator.
+     </p>
+     <h5 style="text-align:left;">Format of MAC address?</h5>
+     <p style="text-align:left;"> 
+     	MAC Address is 48-bits hardware number of a computer, which is embedded into network card (NIC). It has 6 groups of two hexadecimal digits (0-9, a-f). These pair of hexadecimal digits are seperated by hyphens (-) or colons (:).  
+
+     </p>
+     <p>Validate MAC address from this<a href="{% static 'input_mac_file.txt' %}"> file</a>
+
+
+
+  </div>
+</section>
+
+{% endblock %}
