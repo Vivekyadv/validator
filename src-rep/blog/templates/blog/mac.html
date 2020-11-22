@@ -4,22 +4,65 @@
 
 {% block content %}
 
-<section class="jumbotron text-center">
+<section class="jumbotron text-left">
   <div class="container">
      <h1>MAC Validator</h1> <br>
      <img class="img-fluid" src="{% static 'mac.png' %}" width="600" /> <br><br/>
-     <h4 style="text-align:left;">What is MAC address?</h4>
-     <p style="text-align:left;"> 
-     	A media access control address (MAC address) is a unique identifier assigned to a network interface controller (NIC) for use as a network address in communications within a network segment. As typically represented, MAC addresses are recognizable as six groups of two hexadecimal digits, separated by hyphens, colons, or without a separator.
+     <h4><b>What is MAC address?</b></h4>
+     <p> 
+     	A media access control address (MAC address) is a unique identifier assigned to a network interface controller (NIC) for use as a network address in communications within a network segment. As typically represented, MAC addresses are recognizable as six groups of two hexadecimal digits, separated by hyphens or colons. <br>
+
+        First 6-digits (say 00:A0:CC) of MAC Address identifies the manufacturer, called as OUI (Organizational Unique Identifier). IEEE Registration Authority Committee assign these MAC prefixes to its registered vendors. <br><br>
+
+        <b>Here are some OUI of well known manufacturers :</b><br>
+
+        CC:46:D6 - Cisco <br>
+        3C:5A:B4 - Google, Inc. <br>
+        3C:D9:2B - Hewlett Packard <br>
+        00:9A:CD - HUAWEI TECHNOLOGIES CO.,LTD<br>
+     </p><br>
+
+    <h5><b>How to check valid MAC addresses?</b></h5>
+     <p> 
+        We have designed this webpage for you to validate any given MAC address. All you need to do is to enter MAC address and click the "Validate" button. 
      </p>
-     <h5 style="text-align:left;">Format of MAC address?</h5>
-     <p style="text-align:left;"> 
-     	MAC Address is 48-bits hardware number of a computer, which is embedded into network card (NIC). It has 6 groups of two hexadecimal digits (0-9, a-f). These pair of hexadecimal digits are seperated by hyphens (-) or colons (:).  
 
+
+    <body onload='document.form.text.focus()'>
+       <form name="form" action="#"> 
+          
+          Enter IP Address: <input type='text' name='text'/>
+          <button onclick="ValidateMACaddress(document.form.text)"/>Validate</button>
+       </form>
+       <script>
+         function ValidateMACaddress(inputText)
+           {
+            var macformat = /^(([A-Fa-f0-9]{2}[:-]){5}[A-Fa-f0-9]{2}[,]?)+$/i;
+            if(inputText.value.match(macformat))
+              {
+                newval = inputText.value
+                alert("You have entered Valid MAC address");
+                document.form.text.focus();
+                return true;
+              }
+            else
+              {
+                alert("You have entered an Invalid MAC address!");
+                document.form.text.focus();return false;
+              }
+           }
+
+       </script>
+    </body>
+
+    <br><br>
+    <h5><b>Format of MAC address?</b></h5>
+    <p> 
+     	MAC Address is 48-bits hardware number of a computer, which is embedded into network card (NIC). It has 6 groups of two hexadecimal digits (0-9, a-f). These pair of hexadecimal digits are seperated by hyphens (-) or colons (:).  <br>
      </p>
-     <p>Validate MAC address from this<a href="{% static 'input_mac_file.txt' %}"> file</a>
+     
 
-
+    <p><b>Note: You can validate bunch of MAC Addresses from this <a href="{% static 'input_mac_file.txt' %}"> file</a> as a source file in code available <a href="{% static 'validate_mac.txt' %}"> here</a></b></p>
 
   </div>
 </section>

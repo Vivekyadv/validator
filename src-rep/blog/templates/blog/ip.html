@@ -4,23 +4,57 @@
 
 {% block content %}
 
-<section class="jumbotron text-center">
+<section class="jumbotron text-left">
   <div class="container">
      <h1>IP Validator</h1> <br>
      <img class="img-fluid" src="{% static 'ipv4.png' %}" width="600" /> <br><br/>
-     <h4 style="text-align:left;">What is ip address?</h4>
-     <p style="text-align:left;"> 
-    	An Internet Protocol address (IP address) is a numerical label assigned to each device connected to a computer network that uses the Internet Protocol for communication. Internet Protocol version 4 (IPv4) defines an IP address as a 32-bit number. However, because of the growth of the Internet and the depletion of available IPv4 addresses, a new version of IP (IPv6), using 128 bits for the IP address, was standardized in 1998. IPv6 deployment has been ongoing since the mid-2000s. 
+     <h4><b>What is ip address?</b></h4>
+     <p> 
+    	An Internet Protocol address (IP address) is a numerical label assigned to each device connected to a computer network that uses the Internet Protocol for communication. Internet Protocol version 4 (IPv4) defines an IP address as a 32-bit number. This format gives 4,294,967,296, about 4,294 million, possible unique IP addresses. <br>
+        However, because of the growth of the Internet and the depletion of available IPv4 addresses, a new version of IP (IPv6), using 128 bits for the IP address, was standardized in 1998. IPv6 deployment has been ongoing since the mid-2000s. 
+     </p><br>
+
+     <h5><b>How to check valid IP addresses?</b></h5>
+     <p> 
+        We have designed this webpage for you to validate any given IP address. All you need to do is to enter an IP address and click the "Validate" button. 
      </p>
-     <h5 style="text-align:left;">Format of ipv4 address?</h5>
-     <p style="text-align:left;"> 
-     	The IPv4 address is a 32-bit number that uniquely identifies a network interface on a machine. An IPv4 address is typically written in decimal digits, formatted as four 8-bit fields separated by periods. IPv4 is divided into four octets (each of 8 bits). <br/>
-     	Example 10.0.0.1 each octet has range of 0-255. So IPv4 has range of 0.0.0.0 to 255.255.255.255.  
+
+    <body onload='document.form.text.focus()'>
+       <form name="form" action="#"> 
+          
+          Enter IP Address: <input type='text' name='text'/>
+          <button onclick="ValidateIPaddress(document.form.text)"/>Validate</button>
+       </form>
+       <script>
+         function ValidateIPaddress(inputText)
+           {
+            var ipformat = /^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/;
+            if(inputText.value.match(ipformat))
+              {
+                newval = inputText.value
+                alert("You have entered Valid IP address");
+                document.form.text.focus();
+                return true;
+              }
+            else
+              {
+                alert("You have entered an Invalid IP address!");
+                document.form.text.focus();return false;
+              }
+           }
+
+       </script>
+    </body>
+
+    <br><br>
+    <h5><b>Format of ipv4 address</b></h5>
+     <p> 
+        The IPv4 address is a 32-bit number that uniquely identifies a network interface on a machine. An IPv4 address is typically written in decimal digits, formatted as four 8-bit fields separated by periods. IPv4 is divided into four octets (each of 8 bits). <br/>
+        Example 10.0.0.1 each octet has range of 0-255. So IPv4 has range of 0.0.0.0 to 255.255.255.255.  
      </p>
 
-     <p>Validate IP address from this<a href="{% static 'input_ip_file.txt' %}"> file</a>
-
-
+  
+    <p><b>Note: You can validate bunch of IP Addresses from this <a href="{% static 'input_ip_file.txt' %}"> file</a> as a source file in code available <a href="{% static 'validate_ip.txt' %}"> here</a></b></p>
 
   </div>
 </section>
