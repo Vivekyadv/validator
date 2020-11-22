@@ -31,7 +31,7 @@
     <body onload='document.form.text.focus()'>
        <form name="form" action="#"> 
           
-          Enter IP Address: <input type='text' name='text'/>
+          Enter MAC Address: <input type='text' name='text'/>
           <button onclick="ValidateMACaddress(document.form.text)"/>Validate</button>
        </form>
        <script>
@@ -62,7 +62,7 @@
      </p>
      
 
-    <p><b>Note: You can validate bunch of MAC Addresses from this <a href="{% static 'input_mac_file.txt' %}"> file</a> as a source file in code available <a href="{% static 'validate_mac.txt' %}"> here</a></b></p>
+    <p><b>Note: You can validate bunch of MAC Addresses from this <a href="{% static 'input_mac_file.txt' %}"> file</a> as a source file in code available <a href="{% static 'validate-mac.py' %}"> here</a></b></p>
 
   </div>
 </section>
